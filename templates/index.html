@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+
+
+{% comment %} Image Slider {% endcomment %}
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://source.unsplash.com/3900x600/?books,book" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://source.unsplash.com/3900x600/?book,books" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://source.unsplash.com/3900x600/?book sheel,book" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+{% comment %} Image Slider {% endcomment %}
+
+<!-- 
+ new blog catogry-->
+ {% comment %} <a href="/blog_page/{{i.Id}}" class="title_color"></a> {% endcomment %}
+<div class="container mt-2 mb-3 ">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  
+     <div class="col">
+<a href="/blog_page/{{latest_data.Id}}" class="title_color">
+    <button type="button" class="btn btn-success m-1">NEW</button>
+    <div class="card h-90">
+      <img src="https://source.unsplash.com/random" class="card-img-top" alt="..." height="200px">
+      <div class="card-body">
+        <h5 class="card-title">{{latest_data.Blog_title}}</h5>
+        <p class="card-text overflow-auto">{{latest_data.Blog_desc}}</p>
+      </div>
+      
+    </div></a>
+  </div>
+</div></div>
+
+  <!-- new blog catogry end --> 
+
+<!-- All items  -->
+  <div class="container mt-2 mb-3 ">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for i  in  all_data%}
+      <a href="/blog_page/{{i.Id}}" class="title_color">
+        <div class="col" >
+        <div class="card h-90">
+          <img src="https://source.unsplash.com/book" class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title">{{i.Blog_title}}</h5>
+            <p class="card-text overflow-auto desc_class">{{i.Blog_desc}}</p>
+          </div>
+          
+        </div>
+      </div> </a>
+      {% endfor %}
+    </div></div>
+<!-- All items  -->
+
+
+
+
+  </body>
+</html>
+
+
+{% endblock body %}

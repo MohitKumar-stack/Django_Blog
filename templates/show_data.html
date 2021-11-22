@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock title %}
+{% block script %}
+{% endblock script %}
+{% block body %}
+
+<div class="container mb-3 mt-2">
+    <div class="container mt-2">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+         {% for i  in  Data%}
+         <a href="/blog_page/{{i.Id}}" class="title_color">
+        <div class="col" onclick='blog_page()'>
+        <div class="card h-90">
+          <img src="https://source.unsplash.com/nobel" class="card-img-top" alt="..." height="200px">
+          <div class="card-body">
+            <h5 class="card-title">{{i.Blog_title}}</h5>
+            <p class="card-text overflow-auto">{{i.Blog_desc}}</p>
+          </div>
+          
+        </div>
+      </div> 
+      </a>
+      {% endfor %}
+
+        
+         </div>
+        </div>
+</div>
+
+
+
+
+{% endblock body %}
